@@ -1,4 +1,4 @@
-# SQE Supplementary Data Package
+# M-SQE — Evaluation Data
 
 This directory contains the skill pools, test tasks, and deterministic
 checkers for the three evaluation domains: **General**, **Tool**, and **Culture**.

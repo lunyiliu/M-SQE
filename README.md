@@ -14,32 +14,9 @@ Community-maintained **agent skill** libraries — reusable procedural documents
 
 **M-SQE** is a lightweight, post-retrieval **quality estimation** layer. Given a query and its retrieved candidate skills, it routes the query to a domain, scores each candidate from two complementary views, and merges them with a domain-specific rule into a single ranked score:
 
-```
-                         query
-                           │
-                           ▼
-                  ┌──────────────────┐   5-shot task-type router
-                  │      Router      │   →  general | tool | culture
-                  └────────┬─────────┘   selects domain scorers + combine rule
-                           │
-                  for each candidate skill
-                           │
-                   ┌───────┴────────┐
-                   ▼                ▼
-              ┌─────────┐     ┌──────────┐
-              │ Theory  │     │  Action  │   Theory = intrinsic quality of the
-              │  view   │     │   view   │            skill document (task-free)
-              └────┬────┘     └────┬─────┘   Action = task-grounded expected
-                   └───────┬───────┘                  utility (+ misleading risk)
-                           ▼
-                  ┌──────────────────┐   domain combine rule
-                  │     Combine      │   general: 0.6·Action + 0.4·Theory
-                  │   (per domain)   │   tool:    Action order, Theory ≥ 65 +
-                  └────────┬─────────┘             no language-violation guard
-                           ▼            culture: z(retrieval)+z(theory)+z(action)
-                  ranked candidate skills
-                  (final / theory / action per skill)
-```
+<div align="center">
+<img src="assets/framework.png" alt="M-SQE framework: user query and retrieved candidate skills are scored by a Theory view (intrinsic quality) and an Action view (task-grounded utility), then merged by a domain-conditioned unified score into a Top-N budget for the solver." width="760">
+</div>
 
 - **Router** — a 5-shot task-type router classifies the query into `general`, `tool` (function calling), or `culture`, selecting the domain-specific scorers and combine rule.
 - **Theory view** — intrinsic quality of the skill document, judged *without* the task, on six dimensions with a red-line / basic / advanced level cap.

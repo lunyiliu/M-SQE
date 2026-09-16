@@ -1,4 +1,4 @@
-# SQE Supplementary Package — Code
+# M-SQE — Code
 
 This directory contains the scoring components behind the paper's
 query -> router -> Theory/Action scoring -> three-domain combine -> final

@@ -1,0 +1,20 @@
+{
+  "query": "A Swedish workplace orientation wants a note about the tone of everyday interactions. What principle should it emphasize?",
+  "candidates": [
+    {
+      "skill_id": "culture_pool:2540",
+      "body": "Swedish Visiting Etiquette Visits are typically arranged in advance rather than unannounced. Guests should arrive at the designated time and remove shoes before entering homes. It is customary to stay for coffee and conversation after a meal. Expressing thanks with 'Tack för senast' upon the next meeting is expected. Fika, involving coffee or tea with snacks, is a common social gathering. Plan visits ahead of time to align with local norms. Arrive punctually when invited to a Swedish home. Expect to be offered black coffee and remain for conversation after eating. Remove footwear upon entry, especially during winter months. Do not assume all gatherings involve fika as it is specific to certain contexts. Avoid implying that shoe removal applies to every building type regardless of season. Do not treat the 'Tack för senast' custom as applicable to non-Swedish cultures.",
+      "retrieval_score": 14.2
+    },
+    {
+      "skill_id": "culture_pool:79",
+      "body": "Greetings between men in Jordan often involve a handshake, a nod, or placing a hand lightly over the heart. When greeting women in Jordan, it is customary to wait to see if a handshake is offered, as some prefer verbal greetings. Close friends and family often exchange cheek-to-cheek touches or light kisses, typically starting on the right side. Accepting at least a small sip of offered tea or coffee is considered a polite response to Jordanian hospitality. Modest dress covering shoulders and knees is expected, particularly in rural areas and at religious sites. Public displays of affection are generally discouraged in Jordan. Tipping is customary but not obligatory, with a 10% tip appreciated in restaurants if not included.",
+      "retrieval_score": 9.8
+    },
+    {
+      "skill_id": "culture_pool:1071",
+      "body": "Belief: Systems of conviction that shape values, rituals, institutions, life-cycle events, and views on existence—covering religious faith, spiritual practice, secular ethics, and cultural traditions (e.g., funerary customs and concepts of an afterlife).. Examples of culturally variable contexts include: Typical length and order of a wedding ceremony; Dietary restrictions during major religious holidays; Deciding whether to pull the lever in the classic trolley-problem moral dilemma; Number of days that mourning attire is worn after the death of a parent; Organ-donation acceptance rate among major faith groups; Symbolic colour traditionally worn at funerals",
+      "retrieval_score": 7.5
+    }
+  ]
+}

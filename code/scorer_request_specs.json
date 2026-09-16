@@ -1,0 +1,102 @@
+{
+  "description": "Request parameters used by each scorer. A caller supplies its own OpenAI-compatible client, builds the messages with the listed module entry point, and issues the request with these settings.",
+  "schema_version": "sqe_scorer_request_specs_v1",
+  "scorers": {
+    "culture_action": {
+      "messages": "system + user messages from scorer_messages(\"action_sqe\", task_prompt, card)",
+      "module": "culture_scorer.py",
+      "request": {
+        "extra_body": {
+          "google": {
+            "thinking_config": {
+              "thinking_budget": 0
+            }
+          }
+        },
+        "max_tokens": 1024,
+        "model": "gemini-3-flash-preview",
+        "temperature": 0.0
+      }
+    },
+    "culture_theory": {
+      "messages": "system + user messages from scorer_messages(\"theory_sqe\", task_prompt, card)",
+      "module": "culture_scorer.py",
+      "request": {
+        "extra_body": {
+          "google": {
+            "thinking_config": {
+              "thinking_budget": 0
+            }
+          }
+        },
+        "max_tokens": 1024,
+        "model": "gemini-3-flash-preview",
+        "temperature": 0.0
+      }
+    },
+    "general_action": {
+      "messages": "system + user messages from action_prompt(row)",
+      "module": "general_action.py",
+      "request": {
+        "extra_body": {
+          "google": {
+            "thinking_config": {
+              "thinking_budget": 0
+            }
+          }
+        },
+        "max_tokens": 16384,
+        "model": "gemini-3-flash-preview",
+        "temperature": 0.1
+      }
+    },
+    "general_theory": {
+      "messages": "single user message from build_prompt(body, lang, active_dims(\"theory_full_fixed\"), anchor=True)",
+      "module": "general_theory.py",
+      "request": {
+        "extra_body": {
+          "google": {
+            "thinking_config": {
+              "thinking_budget": 0
+            }
+          }
+        },
+        "max_tokens": 16384,
+        "model": "gemini-3-flash-preview",
+        "temperature": 0.1
+      }
+    },
+    "tool_action": {
+      "messages": "system + user messages from build_messages(rec, skill)",
+      "module": "tool_action.py",
+      "request": {
+        "extra_body": {
+          "google": {
+            "thinking_config": {
+              "thinking_budget": 0
+            }
+          }
+        },
+        "max_tokens": 16384,
+        "model": "gemini-3-flash-preview",
+        "temperature": 0.1
+      }
+    },
+    "tool_theory": {
+      "messages": "system + user messages from theory_messages(skill, inventory_text)",
+      "module": "tool_theory.py",
+      "request": {
+        "extra_body": {
+          "google": {
+            "thinking_config": {
+              "thinking_budget": 0
+            }
+          }
+        },
+        "max_tokens": 16384,
+        "model": "gemini-3-flash-preview",
+        "temperature": 0.1
+      }
+    }
+  }
+}

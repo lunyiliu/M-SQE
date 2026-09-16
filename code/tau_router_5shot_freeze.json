@@ -1,0 +1,97 @@
+{
+  "contract_sha256": "cf13d9c5dc62d510560f94d21af7a6ce3fa1259096b9227d86007c503613ba66",
+  "examples": [
+    {
+      "query": "A presentation object is stored in prs. Write the exact one-line Python expression that returns the text of shape 2 on slide 3, with no assignment or print.",
+      "tau": "general"
+    },
+    {
+      "query": "给定 JSON 数组 [{\"x\":2},{\"x\":5}]，按题目定义的转换规则输出只含平方值的 JSON 数组。",
+      "tau": "general"
+    },
+    {
+      "query": "次の Python 関数を input=[3,1,3] で実行したときの戻り値を、説明なしの JSON 配列で答えてください。",
+      "tau": "general"
+    },
+    {
+      "query": "एक वीडियो में 22 फ्रेम हैं और interval=5 है। दिए गए extraction नियम के अनुसार अंतिम सेव फ़ाइल का सटीक पाथ लिखें।",
+      "tau": "general"
+    },
+    {
+      "query": "Ukipewa jedwali lenye safu mbili, tumia kanuni iliyoelezwa kukokotoa thamani ya mwisho na urudishe nambari pekee.",
+      "tau": "general"
+    },
+    {
+      "query": "send an email to Ana about tomorrow's meeting",
+      "tau": "function"
+    },
+    {
+      "query": "पारसेक शब्द का अर्थ क्या है",
+      "tau": "function"
+    },
+    {
+      "query": "面白いジョークを一つ教えて",
+      "tau": "function"
+    },
+    {
+      "query": "saa ngapi sasa huko Nairobi",
+      "tau": "function"
+    },
+    {
+      "query": "和我玩一局国际象棋",
+      "tau": "function"
+    },
+    {
+      "query": "A Swedish office guide needs one principle for everyday workplace interaction. What should it emphasize?",
+      "tau": "culture"
+    },
+    {
+      "query": "An Indian community handbook is describing how families preserve traditions abroad. Which institutions or activities matter?",
+      "tau": "culture"
+    },
+    {
+      "query": "A Japanese etiquette note is explaining the meaning of a small informal bow. What does it communicate?",
+      "tau": "culture"
+    },
+    {
+      "query": "A Mexican heritage guide is summarizing a family remembrance festival. Which practice should it mention?",
+      "tau": "culture"
+    },
+    {
+      "query": "A Kenyan visitor guide asks about locally appropriate greeting norms. What should it advise?",
+      "tau": "culture"
+    }
+  ],
+  "freeze_date": "2026-07-23",
+  "input_contract": {
+    "forbidden_fields": [
+      "task_id",
+      "benchmark_name",
+      "answer",
+      "gold_function",
+      "function_inventory",
+      "skill",
+      "retrieval_result",
+      "checker",
+      "solver_output",
+      "outcome"
+    ],
+    "visible_fields": [
+      "user_query"
+    ]
+  },
+  "model": "gemini-3-flash-preview",
+  "mutation_policy": "Do not change the prompt, examples, labels, request settings, or repair policy for paper-facing routing results.",
+  "repair_policy": "Only if the first response is not exactly one valid JSON object, append a schema-only repair instruction without revealing or changing the target label; maximum one repair call.",
+  "request": {
+    "max_tokens": 1024,
+    "output_schema": {
+      "tau": "general|function|culture"
+    },
+    "temperature": 0.0,
+    "thinking_level": "minimal"
+  },
+  "schema_version": "sqe_tau_router_5shot_freeze_v1",
+  "status": "paper_facing_frozen",
+  "system_prompt": "You are a lightweight task-type classifier for an agent system.\nClassify the user's query into exactly one of these task types:\n\n- general: A stand-alone knowledge, reasoning, coding, document/data manipulation, or procedural task. The agent should answer or solve the task itself.\n- function: An intent/function-call task where the agent should select or invoke an API, tool, app action, or service function and fill its arguments. These are often short requests about email, calendar, devices, media, transport, alarms, and similar actions.\n- culture: A task whose answer centrally depends on culture-specific customs, values, etiquette, social norms, history, or regional practices.\n\nTie rules: choose culture when culture-specific knowledge is essential. Choose function only for an app/tool/service action or intent invocation; an ordinary programming or coding question that mentions a function is general. Otherwise choose general.\n\nReturn exactly one JSON object and nothing else: {\"tau\":\"general|function|culture\"}."
+}
